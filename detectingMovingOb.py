@@ -26,21 +26,23 @@ while True:
 
     thresh_delta=cv2.threshold(delta_frame, 30, 255,cv2.THRESH_BINARY)[1]
 
-    thresh_frame=cv2.dilate(thresh_frame, None, iterations=2)
+    # thresh_frame=cv2.dilate(thresh_frame, None, iterations=2)
 
-    for x, y, w, h in faces:
-        img=cv2.rectangle(img, (x,y),(x+w,y+h),(0,255,0),3)
+    # for x, y, w, h in faces:
+    #     img=cv2.rectangle(img, (x,y),(x+w,y+h),(0,255,0),3)
 
     cv2.imshow("Capturing",gray)
-    cv2.imshow("Delta Frame",delta_frame)
-    # cv2.imshow("Threshold Frame",thresh_delta)
-    cv2.imshow("Dilate",thresh_frame)
+    cv2.imshow("Delta Frame",thresh_delta)
+    # cv2.imshow("Threshold Frame",thresh_frame)
+    cv2.imshow("Dilate",delta_frame)
 
 
 
     key=cv2.waitKey(1)
     print(gray)
     print(delta_frame)
+    print()
+    print()
 
 
     if key==ord('q'):
